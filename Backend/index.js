@@ -1,11 +1,12 @@
 import express from 'express'
 import env from 'dotenv'
+import GoogleRoute from './routes/Google.js'
 env.config()
 let app=express()
 
 app.use(express.json())
 
-// app.use('/polyline')
+app.use('/polyline',GoogleRoute)
 
 
 let start=()=>
