@@ -3,6 +3,6 @@ import HandleGoogleApi from '../controllers/HandleGoogleApi.js'
 let router=express.Router()
 
 
-router.get('/google',HandleGoogleApi)
+router.post('/google',HandleGoogleApi)
 
 export default router
