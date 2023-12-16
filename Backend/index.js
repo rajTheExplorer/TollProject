@@ -1,16 +1,18 @@
 import express from 'express'
+import env from 'dotenv'
+env.config()
 let app=express()
 
 app.use(express.json())
 
-app.use('/polyline')
+// app.use('/polyline')
 
 
 let start=()=>
 {
-    app.listen((process.env.PORT || 2000),()=>
+    app.listen(process.env.PORT || 2000,()=>
     {
-        console.log(`Listening to port ${process.env.PORT}`)
+        console.log(`Listening to port ${process.env.PORT || 2000}`)
     })
 }
 
