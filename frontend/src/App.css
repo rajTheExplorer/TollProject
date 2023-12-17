@@ -4,9 +4,18 @@
   margin: 0;
   box-sizing: border-box;
 }
+body 
+{
+  background-color: #1a232e;
+  overflow-x: hidden;
+}
 .link 
 {
   text-decoration: none;
   text-transform: capitalize;
   color: white;
+}
+button 
+{
+  cursor: pointer;
 }

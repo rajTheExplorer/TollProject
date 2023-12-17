@@ -5,11 +5,13 @@ import {configureStore} from '@reduxjs/toolkit'
 import MapSlice from './slices/MapSlice';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import ControlSlice from './slices/ControlSlice';
 
 
 let store = configureStore({
   reducer: {
     Map: MapSlice,
+    Control:ControlSlice
   }
 });
 

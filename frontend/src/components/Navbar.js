@@ -4,18 +4,24 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { links } from '../Helpers';
 import { Link } from 'react-router-dom';
 import { FaUserPlus } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { openSidebar } from '../slices/ControlSlice';
 
 
 
 const Navbar = () => {
+     let { isSidebarOpen} = useSelector((state) => state.Control);
+     let dispatch = useDispatch();
   return (
     <StyledNav>
       <section className="nav">
         <nav>
           <div className="nav-header">
-            <h2>Toll Buddy</h2>
-            <button className="ham">
-              <GiHamburgerMenu />
+            <Link className="link" to="/">
+              <h2>Toll Buddy</h2>
+            </Link>
+            <button className="ham" onClick={()=>dispatch(openSidebar())}>
+              {isSidebarOpen ? null : <GiHamburgerMenu />}
             </button>
           </div>
           <div className="nav-links spl">
@@ -30,12 +36,12 @@ const Navbar = () => {
           </div>
           <div className="nav-footer">
             <button>
-              <Link to="/cart" className="link">
-               TryApiFree
+              <Link to="/api" className="link">
+                TryApiFree
               </Link>
             </button>
             <button>
-              <Link className="link">
+              <Link className="link" to="/signup">
                 SignIn <FaUserPlus className="icon" />
               </Link>
             </button>
@@ -51,11 +57,10 @@ let StyledNav = styled.section`
   .nav {
     width: 100vw;
     height: 4rem;
-    background-color: orange;
     color: white;
   }
   .nav nav {
-    max-width: 1170px;
+    max-width: 1070px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -77,12 +82,13 @@ let StyledNav = styled.section`
     color: white;
     border: none;
     outline: none;
+    cursor: pointer;
   }
 
   .nav-footer button {
     margin: 0;
     margin-left: 1rem;
-    background-color: green;
+    background-color: #484f58;
     padding: 0.2rem 0.5rem;
     outline: none;
     border: none;
@@ -91,27 +97,43 @@ let StyledNav = styled.section`
     border-radius: 5px;
   }
 
-
-  @media (max-width:800px)
-  {
-    .nav-links,.nav-footer 
-    {
-        display: none !important;
-    }
-    .spl 
-    {
-        display: none;
-    }
-    .nav-header 
-    {
-        display: flex;
-        width:100%;
-        justify-content: space-between;
-        max-width: 90vw;
-        margin: 0 auto;
+  @media (min-width: 1200px) {
+    .nav nav .ham {
+      display: none;
     }
   }
-  
+  @media (max-width: 1200px) {
+    .nav nav {
+      max-width: 90vw;
+    }
+    .nav-footer,
+    .nav-links {
+      display: none;
+    }
+    .ham {
+      display: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .nav-links,
+    .nav-footer {
+      display: none !important;
+    }
+    .spl {
+      display: none;
+    }
+    .nav-header {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      max-width: 90vw;
+      margin: 0 auto;
+    }
+    .ham {
+      display: flex;
+    }
+  }
 `;
 
 export default Navbar
