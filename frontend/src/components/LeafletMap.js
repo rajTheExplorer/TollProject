@@ -37,6 +37,13 @@ const LeafletMap = () => {
         "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
     });
 
+    let sourceIcon = new Icon({
+      iconUrl: "https://cdn-icons-png.flaticon.com/128/1483/1483336.png",
+    });
+    let destinationIcon = new Icon({
+      iconUrl: "https://cdn-icons-png.flaticon.com/128/9131/9131546.png",
+    });
+    
     let handelChange=(e)=>
     {
         setInputs((prev)=>
@@ -59,8 +66,6 @@ const LeafletMap = () => {
     }, [googlePolylineData]);
 
 
-
-
     useEffect(()=>
     {
       if(googlePolylineData.length>10)
@@ -70,8 +75,6 @@ const LeafletMap = () => {
     },[googlePolylineData])
 
 
-
-
     if (GOOGLE_DATA_LOADING || TOLLGURU_DATA_LOADING) {
       return <h2>Loading...</h2>;
     }
@@ -79,7 +82,6 @@ const LeafletMap = () => {
     {
       let {route}=tollGuruTollData;
       let {hasTolls,tolls}=route;
-      console.log(hasTolls,tolls)
       if(hasTolls)
       {
         for(let items of tolls)
@@ -124,7 +126,7 @@ const LeafletMap = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Polyline positions={decoded}/>
-        {gates.map((item)=>
+        {gates.length>0 && gates.map((item)=>
         {
           return (
             <Marker
@@ -133,6 +135,7 @@ const LeafletMap = () => {
             ></Marker>
           );
         })}
+        {console.log(gates)}
       </MapContainer>
     </section>
   );
