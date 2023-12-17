@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Loading from '../Loading';
 
 const Expenses = () => {
     let { tollGuruTollData, TOLLGURU_DATA_LOADING } = useSelector(
@@ -8,7 +9,7 @@ const Expenses = () => {
 
     if(TOLLGURU_DATA_LOADING)
     {
-        return <h2>Loading</h2>
+        return <Loading/>
     }
 
 

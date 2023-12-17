@@ -12,6 +12,7 @@ import {
   tollGuruTollData,
 } from "../slices/MapSlice";
 import styled from 'styled-components';
+import Loading from '../Loading';
 
 const LeafletMap = () => {
     let dispatch=useDispatch()
@@ -69,7 +70,7 @@ const LeafletMap = () => {
 
 
     if (GOOGLE_DATA_LOADING || TOLLGURU_DATA_LOADING) {
-      return <h2>Loading...</h2>;
+      return <Loading/>
     }
     if(TOLLGURU_DATA_SUCCESS)
     {
@@ -147,13 +148,20 @@ let StyledLeaflet=styled.section`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 5fr 8fr;
+  border-radius: 7px;
+  overflow: hidden;
 }
-.input-section 
+.leaflet .input-section 
 {
   background-color: magenta;
   display: flex;
   flex-direction: column;
   align-items:flex-start;
+}
+
+.leaflet .input-section input 
+{
+
 }
 
 `
