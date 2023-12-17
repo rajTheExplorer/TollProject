@@ -62,9 +62,13 @@ const LeafletMap = () => {
 
     useEffect(()=>
     {
-      if(googlePolylineData.length>10)
+      if(googlePolylineData.length>100)
       {
         dispatch(fetchTollGuruTollData(googlePolylineData));
+      }
+      else 
+      {
+        return
       }
     },[googlePolylineData])
 
@@ -102,14 +106,16 @@ const LeafletMap = () => {
             name="source"
             value={inputs.source}
             onChange={handelChange}
+            placeholder='Source'
           />
           <input
             type="text"
             name="destination"
             value={inputs.destination}
             onChange={handelChange}
+            placeholder='Destination'
           />
-          <button onClick={handleClick}>Submit</button>
+          <button className='post-btn' onClick={handleClick}>Submit</button>
         </div>
         <div className="map-section">
           <MapContainer
@@ -150,18 +156,38 @@ let StyledLeaflet=styled.section`
   grid-template-columns: 5fr 8fr;
   border-radius: 7px;
   overflow: hidden;
+  text-align: center;
+  justify-content: center;
 }
 .leaflet .input-section 
 {
-  background-color: magenta;
   display: flex;
   flex-direction: column;
   align-items:flex-start;
+  padding: 2rem 0;
 }
 
-.leaflet .input-section input 
+.leaflet .input-section input ,button
 {
+  height: 2rem;
+  width: 90vw;
+  max-width: 20rem;
+  outline:none;
+  border: none;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  padding: 0.5rem;
+}
 
+
+
+@media(max-width:900px)
+{
+  .leaflet
+  {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 `

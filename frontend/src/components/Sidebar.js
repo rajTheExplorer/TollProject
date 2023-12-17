@@ -51,6 +51,7 @@ let StyledSide = styled.section`
     grid-template-rows: 1fr 10fr 1fr;
     color: white;
     transition: all 0.5s ease;
+    z-index: 2000;
   }
   .sidebar .side-header {
     display: flex;
