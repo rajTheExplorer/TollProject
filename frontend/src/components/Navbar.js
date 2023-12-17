@@ -41,7 +41,7 @@ const Navbar = () => {
               </Link>
             </button>
             <button>
-              <Link className="link" to="/signup">
+              <Link className="link" to="/signin">
                 SignIn <FaUserPlus className="icon" />
               </Link>
             </button>

@@ -22,13 +22,13 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-          <BrowserRouter>
-            <Navbar/>
-            <Routes>
-              <Route path='/' element={<Home/>}/>
-              <Route path='/wiki' element={<Community/>}/>
-            </Routes>
-          </BrowserRouter>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/wiki" element={<Community />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </Provider>
   );

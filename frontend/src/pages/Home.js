@@ -20,6 +20,7 @@ const Home = () => {
       <ToolTipGuide />
       <Faq/>
       <Integrate/>
+      <Footer/>
     </section>
   );
 }
