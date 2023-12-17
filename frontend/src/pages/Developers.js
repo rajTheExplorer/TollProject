@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Sidebar from "./Sidebar";
+import Sidebar from "../components/Sidebar";
+
 
 const Developers = () => {
   return (
@@ -27,7 +28,7 @@ const Developers = () => {
           part of our growing Developers!
         </p>
       </section>
-      <Sidebar />
+      <Sidebar/>
     </StyledDevelopers>
   );
 };

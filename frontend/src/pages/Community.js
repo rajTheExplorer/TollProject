@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
-import Footer from './Footer';
-import Sidebar from './Sidebar';
+import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
 
 const Community = () => {
   return (
@@ -27,7 +27,7 @@ const Community = () => {
           exploring topics, connect with like-minded individuals, and be part of
           our ever-expanding community!
         </p>
-        <Sidebar />
+        <Sidebar/>
       </section>
     </StyledCommunity>
   );

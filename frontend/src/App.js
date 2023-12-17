@@ -6,9 +6,9 @@ import MapSlice from './slices/MapSlice';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import ControlSlice from './slices/ControlSlice';
-import Community from './components/Community';
-import Developers from './components/Developers';
-import Wiki from './components/Wiki';
+import Community from './pages/Community';
+import Developers from './pages/Developers';
+import Wiki from './pages/Wiki';
 
 
 let store = configureStore({
