@@ -67,7 +67,7 @@ const ToolTipGuide = () => {
           <aside className="tt2">
             <h4>Type of Road or Bridge</h4>
             <p>
-             Tools which are closer to ghat roads and bridges on rivers tend to have higher toll compared to plains
+             Tolls which are closer to ghat roads and bridges on rivers tend to have higher toll compared to plains
             </p>
           </aside>
         ),
@@ -137,6 +137,24 @@ let StyledToolTipGuide = styled.section`
   }
   .tooltip .content article .icon {
     font-size: 2rem;
+  }
+
+  @media (max-width: 800px) {
+    .tooltip
+    {
+        height: auto;
+    }
+   .tooltip .content {
+      grid-template-columns: 1fr;
+      height: auto;
+      margin-top: 1rem;
+      padding: 0rem 0 2rem 0;
+    }
+    .tooltip .content article 
+    {
+        margin: 2rem 0;
+        width: 100%;
+    }
   }
 `;
 export default ToolTipGuide

@@ -6,6 +6,7 @@ import MapSlice from './slices/MapSlice';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import ControlSlice from './slices/ControlSlice';
+import Community from './components/Community';
 
 
 let store = configureStore({
@@ -25,6 +26,7 @@ function App() {
             <Navbar/>
             <Routes>
               <Route path='/' element={<Home/>}/>
+              <Route path='/wiki' element={<Community/>}/>
             </Routes>
           </BrowserRouter>
       </div>

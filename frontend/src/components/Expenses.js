@@ -66,6 +66,7 @@ let StyledExpenses = styled.section`
     grid-template-columns: 5fr 8fr;
     margin-bottom: 4rem;
     max-width:1070px;
+    width: 90vw;
     margin: 0 auto;
   }
 
@@ -97,6 +98,14 @@ let StyledExpenses = styled.section`
   .expenses .content .totals p:nth-of-type(2) {
     font-weight: 600;
     color: black;
+  }
+
+  @media(max-width:800px)
+  {
+    .expenses
+    {
+      grid-template-columns: 1fr;
+    }
   }
 `;
 

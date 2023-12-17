@@ -4,6 +4,8 @@ import Expenses from '../components/Expenses'
 import Sidebar from '../components/Sidebar'
 import Hero from '../components/Hero'
 import ToolTipGuide from '../components/ToolTipGuide'
+import Footer from '../components/Footer'
+import Faq from '../components/Faq'
 
 const Home = () => {
   return (
@@ -15,23 +17,7 @@ const Home = () => {
       <LeafletMap />
       <Expenses />
       <ToolTipGuide />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      
+      <Faq/>
     </section>
   );
 }
