@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
+import Footer from './Footer';
+import Sidebar from './Sidebar';
 
 const Community = () => {
   return (
@@ -16,15 +18,16 @@ const Community = () => {
           dedicated to learning and growth.
         </p>
         <p>
-          <strong>Community Benefits:</strong> <br /> Discover the advantages
-          of being part of our community – access to exclusive content,
-          networking opportunities, and collaborative projects.
+          <strong>Community Benefits:</strong> <br /> Discover the advantages of
+          being part of our community – access to exclusive content, networking
+          opportunities, and collaborative projects.
         </p>
         <p>
-          <strong>Call to Action:</strong> <br /> Ready to engage? Start exploring
-          topics, connect with like-minded individuals, and be part of our
-          ever-expanding community!
+          <strong>Call to Action:</strong> <br /> Ready to engage? Start
+          exploring topics, connect with like-minded individuals, and be part of
+          our ever-expanding community!
         </p>
+        <Sidebar />
       </section>
     </StyledCommunity>
   );

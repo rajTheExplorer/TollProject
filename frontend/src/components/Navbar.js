@@ -5,8 +5,7 @@ import { links } from '../Helpers';
 import { Link } from 'react-router-dom';
 import { FaUserPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { openSidebar } from '../slices/ControlSlice';
-
+import { closeSidebar, openSidebar } from '../slices/ControlSlice';
 
 
 const Navbar = () => {
