@@ -1,18 +1,28 @@
-import L from 'leaflet'
-import { MapContainer, Polyline, TileLayer, useMap } from 'react-leaflet'
+import L, { Icon } from 'leaflet'
+import { MapContainer, Marker, Polyline, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet-routing-machine'
 import "leaflet/dist/leaflet.css";
 import { useSelector } from "react-redux";
 import { decode, encode } from "@googlemaps/polyline-codec";
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchGooglePolydata } from '../slices/MapSlice';
+import {
+  fetchGooglePolydata,
+  fetchTollGuruTollData,
+  tollGuruTollData,
+} from "../slices/MapSlice";
 
 const LeafletMap = () => {
     let dispatch=useDispatch()
     
-    let { googlePolylineData, GOOGLE_DATA_LOADING, GOOGLE_DATA_SUCCESS} =
-      useSelector((state) => state.Map);
+    let {
+      googlePolylineData,
+      GOOGLE_DATA_LOADING,
+      GOOGLE_DATA_SUCCESS,
+      TOLLGURU_DATA_LOADING,
+      TOLLGURU_DATA_SUCCESS,
+      tollGuruTollData,
+    } = useSelector((state) => state.Map);
 
 
     let [inputs,setInputs]=useState({
@@ -20,7 +30,12 @@ const LeafletMap = () => {
         destination:''
     })
     let [decoded,setDecoded]=useState([])
-
+    let [markers,setMarkers]=useState([])
+    let gates=[]
+    let icon = new Icon({
+      iconUrl:
+        "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+    });
 
     let handelChange=(e)=>
     {
@@ -44,9 +59,41 @@ const LeafletMap = () => {
     }, [googlePolylineData]);
 
 
-    if(GOOGLE_DATA_LOADING)
+
+
+    useEffect(()=>
     {
-        return <h2>Loading...</h2>
+      if(googlePolylineData.length>10)
+      {
+        dispatch(fetchTollGuruTollData(googlePolylineData));
+      }
+    },[googlePolylineData])
+
+
+
+
+    if (GOOGLE_DATA_LOADING || TOLLGURU_DATA_LOADING) {
+      return <h2>Loading...</h2>;
+    }
+    if(TOLLGURU_DATA_SUCCESS)
+    {
+      let {route}=tollGuruTollData;
+      let {hasTolls,tolls}=route;
+      console.log(hasTolls,tolls)
+      if(hasTolls)
+      {
+        for(let items of tolls)
+        {
+          if(items.id>10)
+          {
+            gates.push({coordinates:[items.lat,items.lng],name:items.name})
+          }
+          else 
+          {
+            continue;
+          }
+        }
+      }
     }
 
 
@@ -77,6 +124,15 @@ const LeafletMap = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Polyline positions={decoded}/>
+        {gates.map((item)=>
+        {
+          return (
+            <Marker
+              position={item.coordinates}
+              icon={icon}
+            ></Marker>
+          );
+        })}
       </MapContainer>
     </section>
   );
