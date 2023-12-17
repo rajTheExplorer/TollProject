@@ -3,18 +3,37 @@ import LeafletMap from '../components/LeafletMap'
 import Expenses from '../components/Expenses'
 import Sidebar from '../components/Sidebar'
 import Hero from '../components/Hero'
+import ToolTipGuide from '../components/ToolTipGuide'
 
 const Home = () => {
   return (
     <section>
-        {/* <LeafletMap/>
+      {/* <LeafletMap/>
         <Expenses/> */}
-        <Sidebar/>
-        <Hero/>
-        <LeafletMap/>
-        <Expenses/>
+      <Sidebar />
+      <Hero />
+      <LeafletMap />
+      <Expenses />
+      <ToolTipGuide />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      
     </section>
-  )
+  );
 }
 
 export default Home

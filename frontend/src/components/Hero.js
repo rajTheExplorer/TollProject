@@ -8,7 +8,7 @@ const Hero = () => {
     <StlyedHero>
       <section className="hero">
         <div className="content">
-          <h2>US Toll Calculator – Google Maps with Tolls & Gas Costs</h2>
+          <h2>Global Toll Calculator – Google Maps with Tolls & Gas Costs</h2>
           <p>
             Looking to calculate toll costs between cities across Jamaica? Use
             the Jamaica Toll Calculator App! See trip cost breakdown - tolls,
@@ -43,6 +43,7 @@ let StlyedHero=styled.section`
 .hero .content 
 {
     /* background-color: yellow; */
+    overflow-y: hidden;
 }
 .hero h2 
 {

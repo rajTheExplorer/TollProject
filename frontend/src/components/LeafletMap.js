@@ -177,7 +177,7 @@ let StyledLeaflet=styled.section`
 
 
 
-@media(max-width:900px)
+@media(max-width:1000px)
 {
   .leaflet
   {
