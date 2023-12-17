@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import {configureStore} from '@reduxjs/toolkit'
 import MapSlice from './slices/MapSlice';
 import Home from './pages/Home';
+import Navbar from './components/Navbar';
 
 
 let store = configureStore({
@@ -19,6 +20,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
           <BrowserRouter>
+            <Navbar/>
             <Routes>
               <Route path='/' element={<Home/>}/>
             </Routes>

@@ -36,14 +36,6 @@ const LeafletMap = () => {
       iconUrl:
         "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
     });
-
-    let sourceIcon = new Icon({
-      iconUrl: "https://cdn-icons-png.flaticon.com/128/1483/1483336.png",
-    });
-    let destinationIcon = new Icon({
-      iconUrl: "https://cdn-icons-png.flaticon.com/128/9131/9131546.png",
-    });
-    
     let handelChange=(e)=>
     {
         setInputs((prev)=>
