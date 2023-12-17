@@ -1,13 +1,21 @@
 import React from 'react'
+import styled from 'styled-components';
 
 const Footer = () => {
   return (
-    <div>
-      <h2>
-        
-      </h2>
-    </div>
+    <StyledFooter>
+      <section></section>
+    </StyledFooter>
   );
 }
+
+
+let StyledFooter=styled.section`
+
+
+
+
+
+`
 
 export default Footer

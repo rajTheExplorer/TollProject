@@ -6,6 +6,7 @@ import Hero from '../components/Hero'
 import ToolTipGuide from '../components/ToolTipGuide'
 import Footer from '../components/Footer'
 import Faq from '../components/Faq'
+import Integrate from '../components/Integrate'
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Expenses />
       <ToolTipGuide />
       <Faq/>
+      <Integrate/>
     </section>
   );
 }
