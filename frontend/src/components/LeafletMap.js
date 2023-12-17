@@ -1,5 +1,5 @@
 import L, { Icon } from 'leaflet'
-import { MapContainer, Marker, Polyline, TileLayer, useMap } from 'react-leaflet'
+import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet-routing-machine'
 import "leaflet/dist/leaflet.css";
 import { useSelector } from "react-redux";
@@ -118,7 +118,7 @@ const LeafletMap = () => {
       </div>
       <MapContainer
         center={decoded[0] || [30.82272, 76.9407]}
-        zoom={8}
+        zoom={13}
         style={{ width: "500px", height: "400px" }}
       >
         <TileLayer
@@ -132,7 +132,9 @@ const LeafletMap = () => {
             <Marker
               position={item.coordinates}
               icon={icon}
-            ></Marker>
+            >
+              <Popup>{item.name}</Popup>
+            </Marker>
           );
         })}
         {console.log(gates)}
