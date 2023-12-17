@@ -11,6 +11,8 @@ const Home = () => {
         <Expenses/> */}
         <Sidebar/>
         <Hero/>
+        <LeafletMap/>
+        <Expenses/>
     </section>
   )
 }

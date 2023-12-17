@@ -11,6 +11,7 @@ import {
   fetchTollGuruTollData,
   tollGuruTollData,
 } from "../slices/MapSlice";
+import styled from 'styled-components';
 
 const LeafletMap = () => {
     let dispatch=useDispatch()
@@ -92,47 +93,69 @@ const LeafletMap = () => {
 
 
   return (
-    <section>
-      <div className="input-section">
-        <input
-          type="text"
-          name="source"
-          value={inputs.source}
-          onChange={handelChange}
-        />
-        <input
-          type="text"
-          name="destination"
-          value={inputs.destination}
-          onChange={handelChange}
-        />
-        <button onClick={handleClick}>Submit</button>
-      </div>
-      <MapContainer
-        center={decoded[0] || [30.82272, 76.9407]}
-        zoom={13}
-        style={{ width: "500px", height: "400px" }}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Polyline positions={decoded}/>
-        {gates.length>0 && gates.map((item)=>
-        {
-          return (
-            <Marker
-              position={item.coordinates}
-              icon={icon}
-            >
-              <Popup>{item.name}</Popup>
-            </Marker>
-          );
-        })}
-        {console.log(gates)}
-      </MapContainer>
-    </section>
+    <StyledLeaflet>
+      <section className="leaflet">
+        <div className="input-section">
+          <input
+            type="text"
+            name="source"
+            value={inputs.source}
+            onChange={handelChange}
+          />
+          <input
+            type="text"
+            name="destination"
+            value={inputs.destination}
+            onChange={handelChange}
+          />
+          <button onClick={handleClick}>Submit</button>
+        </div>
+        <div className="map-section">
+          <MapContainer
+            center={decoded[0] || [30.82272, 76.9407]}
+            zoom={13}
+            style={{ width: "100%", height: "400px" }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Polyline positions={decoded} />
+            {gates.length > 0 &&
+              gates.map((item) => {
+                return (
+                  <Marker position={item.coordinates} icon={icon}>
+                    <Popup>{item.name}</Popup>
+                  </Marker>
+                );
+              })}
+            {console.log(gates)}
+          </MapContainer>
+        </div>
+      </section>
+    </StyledLeaflet>
   );
 }
+
+
+let StyledLeaflet=styled.section`
+
+.leaflet 
+{
+  width: 90vw;
+  max-width: 1070px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 5fr 8fr;
+}
+.input-section 
+{
+  background-color: magenta;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+}
+
+`
 
 export default LeafletMap
