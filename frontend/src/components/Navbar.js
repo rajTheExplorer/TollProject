@@ -25,9 +25,9 @@ const Navbar = () => {
           </div>
           <div className="nav-links spl">
             {links.map((items) => {
-              let { text, url } = items;
+              let { text, url,id } = items;
               return (
-                <Link to={url} className="link">
+                <Link to={url} className="link" key={id}>
                   <p>{text}</p>
                 </Link>
               );

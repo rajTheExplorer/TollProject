@@ -20,9 +20,9 @@ const Sidebar = () => {
         </div>
         <div className="side-links">
           {links.map((items) => {
-            let { url, text } = items;
+            let { url, text,id } = items;
             return (
-              <Link to={url} className="link">
+              <Link to={url} className="link" key={id}>
                 <p>{text}</p>
               </Link>
             );
