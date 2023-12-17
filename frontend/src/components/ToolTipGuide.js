@@ -138,22 +138,22 @@ let StyledToolTipGuide = styled.section`
   .tooltip .content article .icon {
     font-size: 2rem;
   }
-
+  .tooltip .content article .text {
+    text-transform: capitalize;
+  }
   @media (max-width: 800px) {
-    .tooltip
-    {
-        height: auto;
+    .tooltip {
+      height: auto;
     }
-   .tooltip .content {
+    .tooltip .content {
       grid-template-columns: 1fr;
       height: auto;
       margin-top: 1rem;
       padding: 0rem 0 2rem 0;
     }
-    .tooltip .content article 
-    {
-        margin: 2rem 0;
-        width: 100%;
+    .tooltip .content article {
+      margin: 2rem 0;
+      width: 100%;
     }
   }
 `;
