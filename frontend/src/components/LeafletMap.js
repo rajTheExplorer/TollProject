@@ -62,13 +62,9 @@ const LeafletMap = () => {
 
     useEffect(()=>
     {
-      if(googlePolylineData.length>100)
+      if(googlePolylineData.length>0)
       {
         dispatch(fetchTollGuruTollData(googlePolylineData));
-      }
-      else 
-      {
-        return
       }
     },[googlePolylineData])
 

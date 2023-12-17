@@ -25,6 +25,7 @@ let fetchGooglePolydata = createAsyncThunk("map/fetchGooglePolydata",async({sour
 let fetchTollGuruTollData = createAsyncThunk(
   "map/fetchTollGuruTollData",
   async (polyline) => {
+     console.log("TOLL GURU STARTED");
     let response = await axios.post("/tollguru", {polyline});
     console.log(response.data);
     return response.data;
