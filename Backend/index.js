@@ -14,12 +14,8 @@ app.use('/polyline',GoogleRoute)
 app.use('/polyline',TollGuruRoute)
 
 
-let start=()=>
-{
-    app.listen(process.env.PORT || 2000,()=>
+
+ app.listen(process.env.PORT || 2000,()=>
     {
         console.log(`Listening to port ${process.env.PORT || 2000}`)
     })
-}
-
-start()
